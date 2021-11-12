@@ -19,3 +19,7 @@ app.use(express.static("public"));
 app.use(htmlRouter);
 //Middleware for apiRouter
 app.use(apiRouter);
+
+app.listen(PORT, () =>
+  console.log(`Express server listening at http://localhost:${PORT}`)
+);
