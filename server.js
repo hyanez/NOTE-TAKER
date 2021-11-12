@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
-//Middleware for htmlRouter
-app.use(htmlRouter);
 //Middleware for apiRouter
 app.use(apiRouter);
+//Middleware for htmlRouter
+app.use(htmlRouter);
 
 app.listen(PORT, () =>
   console.log(`Express server listening at http://localhost:${PORT}`)

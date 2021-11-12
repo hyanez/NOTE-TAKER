@@ -27,12 +27,12 @@ const readAndAppend = (content, file) => {
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
 router.get("/api/notes", (req, res) => {
   console.info(`${req.method} request received for tips`);
-  readFromFile("../db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
 });
 
 // POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
 // POST Route for adding notes
-router.post("/api/tips", (req, res) => {
+router.post("/api/notes", (req, res) => {
   console.info(`${req.method} request received to add a tip`);
 
   const { title, text } = req.body;
@@ -44,7 +44,7 @@ router.post("/api/tips", (req, res) => {
       title_id: uuid(),
     };
 
-    readAndAppend(newNote, "../db/db.json");
+    readAndAppend(newNote, "./db/db.json");
     res.json(`Note added successfully 🚀`);
   } else {
     res.error("Error in adding note");
